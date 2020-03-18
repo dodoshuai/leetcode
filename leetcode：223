@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+            vector<int> a;
+            vector<int> b;
+            a.push_back(A);
+            b.push_back(B);
+            a.push_back(C);
+            b.push_back(D);
+            a.push_back(E);
+            b.push_back(F);
+            a.push_back(G);
+            b.push_back(H);
+            sort(a.begin(),a.end());
+            sort(b.begin(),b.end());
+            int x=a[2]-a[1];
+            int y=b[2]-b[1];
+            int s1=(C-A)*(D-B);
+            int s2=(G-E)*(H-F);
+            if(E>=C||A>=G||B>=H||F>=D)//判断是否相交（如果不相交）
+            return s1+s2;
+            else
+            return s1-x*y+s2;//请注意如果把s2和x*y的运算顺序掉换，结果就会超出int范围
+    }
+};
